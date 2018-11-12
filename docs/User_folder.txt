@@ -1,0 +1,9 @@
+$USER_HOME/.gearman
+    - logs
+    - modules
+        - gearman-core.jar
+        - gearman-module-content-codecs.jar
+        - ... jars
+        - modules.xml
+    - config.xml
+    - logging.xml
