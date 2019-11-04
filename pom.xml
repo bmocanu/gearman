@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ws.mocanu.gearman</groupId>
-    <artifactId>gearman</artifactId>
+    <groupId>ws.gearman</groupId>
+    <artifactId>gearman-parent</artifactId>
     <version>1.0</version>
-    <name>Gearman Parent</name>
+    <name>Gearman</name>
     <packaging>pom</packaging>
 
     <properties>
@@ -65,10 +65,7 @@
     </build>
 
     <modules>
-        <module>core/commons</module>
         <module>core/app</module>
-        <module>core/bootstrap</module>
-        <module>modules/content-codecs</module>
     </modules>
 
 </project>

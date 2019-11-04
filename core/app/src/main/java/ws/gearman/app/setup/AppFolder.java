@@ -1,24 +1,32 @@
-package gearman.bootstrap;
+package ws.gearman.app.setup;
 
-import gearman.commons.AppPaths;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-public class AppFolderSetup {
+public class AppFolder {
 
-    public void init() throws Exception {
+    private static Logger log;
+
+    public static void init() throws Exception {
+        log = LoggerFactory.getLogger(AppFolder.class);
         ensureFolderExists(AppPaths.ROOT_FOLDER);
         ensureFolderExists(AppPaths.MODULES_FOLDER);
         ensureFolderExists(AppPaths.LOGGING_FOLDER);
-        ensureFileExists(AppPaths.MODULES_CONFIG_FILE, "/default-config/default-modules.xml");
-        ensureFileExists(AppPaths.LOGGING_CONFIG_FILE, "/default-config/default-logging.xml");
-        ensureFileExists(AppPaths.APP_CONFIG_FILE, "/default-config/default-config.xml");
+        ensureFileExists(AppPaths.MODULES_CONFIG_FILE, "/default-config/modules.xml");
+        ensureFileExists(AppPaths.LOGGING_CONFIG_FILE, "/default-config/logging.xml");
+        ensureFileExists(AppPaths.APP_CONFIG_FILE, "/default-config/config.xml");
     }
 
     // ----------------------------------------------------------------------------------------------------
 
-    private void ensureFolderExists(String folderPath) {
+    private static void ensureFolderExists(String folderPath) {
         File folder = new File(folderPath);
         if (!folder.exists()) {
             if (!folder.mkdirs()) {
@@ -29,7 +37,7 @@ public class AppFolderSetup {
         }
     }
 
-    private void ensureFileExists(String filePath, String defaultFile) throws IOException {
+    private static void ensureFileExists(String filePath, String defaultFile) throws IOException {
         File file = new File(filePath);
         if (!file.exists()) {
             if (!file.createNewFile()) {
@@ -41,7 +49,7 @@ public class AppFolderSetup {
             InputStream defaultFileStream = null;
             OutputStream fileOutputStream = null;
             try {
-                defaultFileStream = this.getClass().getResourceAsStream(defaultFile);
+                defaultFileStream = AppFolder.class.getResourceAsStream(defaultFile);
                 fileOutputStream = new FileOutputStream(file);
 
                 IOUtils.copy(defaultFileStream, fileOutputStream);
