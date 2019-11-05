@@ -66,6 +66,7 @@
 
     <modules>
         <module>core/app</module>
+        <module>modules/base</module>
     </modules>
 
 </project>

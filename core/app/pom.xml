@@ -11,7 +11,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>ws.mocanu.gearman.core</groupId>
+    <groupId>ws.gearman.core</groupId>
     <artifactId>gearman-app</artifactId>
     <version>1.0</version>
     <name>Gearman App</name>
