@@ -14,7 +14,7 @@
     <groupId>ws.gearman.core</groupId>
     <artifactId>gearman-app</artifactId>
     <version>1.0</version>
-    <name>Gearman App</name>
+    <name>Gearman Core - App</name>
     <packaging>jar</packaging>
 
     <dependencies>
